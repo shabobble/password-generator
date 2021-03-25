@@ -4,6 +4,7 @@ specialCharacter = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ",", "'", 
 number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 lowercaseAlpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 uppercaseAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+let selections;
 
 
 // Assignment Code
@@ -17,6 +18,12 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
+/* Defines variables */
+let confirmUppercase;
+let confirmLowercase;
+let confirmNumbers;
+let confirmCharacters;
 
 function generatePassword() {
 
@@ -42,9 +49,16 @@ function generatePassword() {
           confirmCharacters = confirm("Should your password include any special characters?");
 
       }
+    
+
+    if (!confirmUppercase && !confirmLowercase && !confirmNumbers && !confirmCharacters) {
+      selections = alert("You must choose at least one criteria.");
+      generatePassword();
+
+    } else if (confirmUppercase && confirmLowercase && confirmNumbers && confirmCharacters) {
+      selections = specialCharacter.concat(number, lowercaseAlpha, uppercaseAlpha);
     }
-
-
+}
 
 
 // Add event listener to generate button
