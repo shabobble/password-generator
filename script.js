@@ -25,6 +25,7 @@ let confirmLowercase;
 let confirmNumbers;
 let confirmCharacters;
 let selections;
+let pickSelections;
 
 
 function generatePassword() {
@@ -102,6 +103,14 @@ function generatePassword() {
     } else if (confirmCharacters) {
       selections = specialCharacter;
     }
+    for (var i = 0; i < passwordLength; i++) {
+      pickSelections = selections[Math.floor(Math.random() * selections.length)]; 
+      passwordText.push(pickSelections);
+    }
+    // password = passwordText.join("");
+    // UserInput(password) {
+
+    
 }
 
 
