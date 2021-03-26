@@ -103,14 +103,14 @@ function generatePassword() {
     } else if (confirmCharacters) {
       selections = specialCharacter;
     }
+    
+    let password = "";
+    
     for (var i = 0; i < passwordLength; i++) {
       pickSelections = selections[Math.floor(Math.random() * selections.length)]; 
-      passwordText.push(pickSelections);
+      password += pickSelections;
     }
-    // password = passwordText.join("");
-    // UserInput(password) {
-
-    
+      return password;
 }
 
 
