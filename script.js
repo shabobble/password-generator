@@ -1,12 +1,3 @@
-/* Possible password characters */
-
-specialCharacter = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ",", "'", "+", "-", ".", "/", ":", ";", "<", "=", ">", "?", "~"];
-number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-lowercaseAlpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-uppercaseAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
-
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -18,21 +9,24 @@ function writePassword() {
   passwordText.value = password;
 
 }
+function generatePassword() {
+
+  /* Possible password characters */
+
+let specialCharacter = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ",", "'", "+", "-", ".", "/", ":", ";", "<", "=", ">", "?", "~"];
+let number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let lowercaseAlpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let uppercaseAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 /* Defines variables */
 let confirmUppercase;
 let confirmLowercase;
 let confirmNumbers;
 let confirmCharacters;
-let selections;
-let pickSelections;
 
+/* Asks the user how many characters their password should be and ensures a number is entered */
 
-function generatePassword() {
-
-/* Asks the user how many characters their password should be */
-
-  passwordLength = parseInt(prompt("How many characters long should your password be? Choose a number between 8 and 128."));
+  let passwordLength = parseInt(prompt("How many characters long should your password be? Choose a number between 8 and 128."));
 
 /* Makes sure user enters a number between 8 and 128, else restarts the function */
 
@@ -47,12 +41,14 @@ function generatePassword() {
       else {
         alert("Thank you!");
           confirmUppercase = confirm("Should your password include uppercase letters?");
-          confirmLowercase = confirm("Should your password include lowercase letters?");
-          confirmNumbers = confirm("Should your password include numbers?");
-          confirmCharacters = confirm("Should your password include any special characters?");
+          confirmLowercase = confirm("Thank you, and should your password also include lowercase letters?");
+          confirmNumbers = confirm("Thank you, and should your password also include numbers?");
+          confirmCharacters = confirm("Final question: Should your password include any special characters?");
 
       }
     
+      let pickSelections;
+      let selections;
 
     if (!confirmUppercase && !confirmLowercase && !confirmNumbers && !confirmCharacters) {
       selections = alert("You must choose at least one criteria.");
